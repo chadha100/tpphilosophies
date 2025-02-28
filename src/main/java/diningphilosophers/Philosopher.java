@@ -60,7 +60,7 @@ public class Philosopher extends Thread {
                 if (c2.isiAmFree()) {
                     theEnd(c2,c1);
                 } else {
-                    c2.release();
+                    c1.release();
                 }
             }
         }
@@ -68,7 +68,7 @@ public class Philosopher extends Thread {
 
 
     public void theEnd(ChopStick c1,ChopStick c2) throws InterruptedException {
-        c1.take();
+        c2.take();
         eat();
         c1.release();
         c2.release();
